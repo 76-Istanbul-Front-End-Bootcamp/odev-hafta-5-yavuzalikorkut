@@ -33,4 +33,35 @@ document.querySelector("#reset").addEventListener("click", () => {
 
 /* START CODING HERE */
 
+//bigger
+const populationBiggerButton = document.getElementById("populationBigger");
 
+populationBiggerButton.addEventListener("click", () => {
+    const biggerCities = data.filter(city => city.population > 500000);
+    createTableElements(biggerCities, "allcities");
+});
+
+//less
+const landAreaLessButton = document.getElementById("landAreaLess");
+
+landAreaLessButton.addEventListener("click", () => {
+    const landAreaLessCities = data.filter(city => city.landArea < 1000);
+    createTableElements(landAreaLessCities, "allcities");
+});
+
+
+//alert for less
+const isPopulationLessButton = document.getElementById("isPopulationLess");
+
+isPopulationLessButton.addEventListener("click", () => {
+    const isAnyLess = data.some(city => city.population < 100000);
+    (isAnyLess) ? alert("Yes") : alert("No");
+});
+
+//alert for bigger
+const isLandBiggerButton = document.getElementById("isLandBigger");
+
+isLandBiggerButton.addEventListener("click", () => {
+    const isLandBigger = data.some(city => city.landArea > 100);
+    (isLandBigger) ? alert("Yes") : alert("No");
+});
