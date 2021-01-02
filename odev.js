@@ -65,3 +65,21 @@ isLandBiggerButton.addEventListener("click", () => {
     const isLandBigger = data.some(city => city.landArea > 100);
     (isLandBigger) ? alert("Yes") : alert("No");
 });
+
+//fill 
+const cityNames = data.map(city => city.name);
+const select = document.querySelector(".custom-select");
+select.innerHTML = ""; // clear list items
+
+cityNames.forEach((element) => {
+    const option = document.createElement("option");
+    option.setAttribute("value",element);
+    option.textContent = element;
+    select.appendChild(option);
+});
+
+//find
+select.addEventListener("change", (e) => {
+    const selectedCity = data.find(city => city.name === e.target.value);
+    createTableElements([selectedCity], "singlecity");
+});
